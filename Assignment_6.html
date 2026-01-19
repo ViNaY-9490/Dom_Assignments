@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 6</title>
+</head>
+<body>
+    <form action="#" onsubmit="handlechange(event)" name="myform">
+        <input type="text" name="imagename" id="imagenamesrc" placeholder="paste url">
+        <input type="submit">
+    </form>
+    <script>
+        function handlechange(e){
+            e.preventDefault();
+            var src = document.forms.myform.imagename.value;
+            var image = document.createElement("img");
+            image.src=src;
+            image.style.width="300px"
+            image.style.height="300px"
+            document.body.appendChild(image);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Third Assignment</title>
+    <style>
+        #box{
+            width: 400px;
+            height: 400px;
+            border: 2px solid black;
+            border-radius: 10px;
+            margin: 10px;
+        }
+        button{
+            margin: 12px;
+            padding: 5px;
+            width: 120px;
+        }
+        #container{
+            border: 10px solid black;
+            border-radius: 50px;
+            background-color: rgb(195, 231, 231);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>This is My Third Assignment Page</h1>
+    <div id="box"></div>
+    <button id="on">ON</button>
+    <button id="off">OFF</button>
+    </div>
+    <script>
+        document.getElementById('on').addEventListener('click',function(){
+            document.getElementById('box').style.backgroundColor="yellow";
+             document.getElementById("off").style.background="white";
+            document.getElementById("on").style.background="red";
+        })
+        document.getElementById('off').addEventListener('click',function(){
+            document.getElementById('box').style.backgroundColor="white";
+             document.getElementById("off").style.background="red";
+            document.getElementById("on").style.background="white";
+        })
+    </script>
+</body>
+</html>

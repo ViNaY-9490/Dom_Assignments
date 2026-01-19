@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img1{
+            width: 400px;
+            height: 400px;
+            opacity: 1;
+            transition: opacity 0.2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <img src="" class="img1" alt="carimage" id="img">
+    <br>
+    <button onclick="prevImage()">prev</button>
+    <button onclick="nextImage()">next</button>
+</body>
+<script>
+    const images = [
+        "https://tse1.mm.bing.net/th/id/OIP.Zv8EB7mhjPY_W03p3rXoUwHaK-?rs=1&pid=ImgDetMain&o=7&rm=3",
+       "https://tse3.mm.bing.net/th/id/OIP.bCH2RkwMR3AoPIALUozGIwHaJi?rs=1&pid=ImgDetMain&o=7&rm=3",
+       "https://www.cinejosh.com/newsimg/newsmainimg/the-raja-saab_b_0401260737.jpg",
+       "https://i.ytimg.com/vi/TfE-48vseU8/maxresdefault.jpg"
+    ];
+    document.getElementById("img").src = images[0];
+    var index = 0;
+    function prevImage(){
+        --index;
+        if(index<0){
+            index=images.length-1;
+        }
+        
+        const imgElement = document.getElementById("img");
+        imgElement.style.opacity = 0;
+        setTimeout(() => {
+            imgElement.src = images[index];
+            imgElement.style.opacity = 1;
+        }, 200);
+    }
+    function nextImage(){
+        ++index;
+        if(index==images.length){
+            index=0;
+        }
+    
+        const imgElement = document.getElementById("img");
+        imgElement.style.opacity = 0;
+        setTimeout(() => {
+            imgElement.src = images[index];
+            imgElement.style.opacity = 1;
+        }, 200);
+    }
+</script>
+</html>

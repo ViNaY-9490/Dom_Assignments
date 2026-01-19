@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toggle</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(5, 50px);
+            gap: 10px;
+            padding: 20px;
+        }
+        .seat {
+            width: 50px;
+            height: 50px;
+            background-color: lightgray;
+            border: 2px solid #333;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .seat:hover {
+            background-color: green;
+        }
+        .seat.selected {
+            background-color:red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Book your seats</h1>
+    <div class="container">
+        <div class="seat"></div>
+    <div class="seat"></div>
+    <div class="seat"></div>
+    <div class="seat"></div>
+    <div class="seat"></div>
+    <div class="seat"></div>
+    <div class="seat"></div>
+    <div class="seat"></div>
+    <div class="seat"></div>
+    <div class="seat"></div>
+    </div>
+    <h1 id="display"></h1>
+    <h2 id="seats"></h2>
+    <script>
+        var availableSeats = 10; // Total number of seats
+        var bookedSeats = 0; // Initially booked seats
+        var seats = document.querySelectorAll('.seat');
+        seats.forEach(function(seat) {
+
+            seat.addEventListener('click', function() {
+                if (seat.classList.contains('selected')) {
+                    bookedSeats--;
+                } else {
+                    bookedSeats++;
+                }
+                seat.classList.toggle('selected');
+            });
+        });
+        document.body.addEventListener('click', function() {
+            document.getElementById('display').innerText = 'Available Seats: ' + (availableSeats - bookedSeats);
+            document.getElementById('seats').innerText = 'Booked Seats: ' + bookedSeats;
+        });
+    </script>
+</body>
+</html>

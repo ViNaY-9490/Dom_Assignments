@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo list</title>
+    <style>
+        li{
+            list-style: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <input type="text" id="tastinput">
+    <button onclick="addtask()">Add Task</button>
+    <ul id="tasks"></ul>
+    <script>
+        function addtask(){
+            var taskinput = document.getElementById("tastinput");
+            var taskvalue = taskinput.value;
+            if(taskvalue===""){
+                alert("Please enter a task");
+                return;
+            }
+            var li = document.createElement("li");
+            var done = document.createElement("button");
+            var deletebtn = document.createElement("button");
+            deletebtn.innerText="Delete";
+            deletebtn.onclick=function(){
+                li.remove(); 
+            }
+            done.innerText="Done";
+            done.onclick=function(){
+                if(li.style.textDecoration==="line-through"){
+                    li.style.textDecoration="none"; 
+                    done.innerText="done"
+                    deletebtn.enabled=true;
+                    deletebtn.style.opacity="1"
+                }else{
+                    li.style.textDecoration="line-through";
+                    done.innerText="undo";
+                    deletebtn.enabled=false;
+                    deletebtn.style.opacity="0.5"
+                }
+            }
+            li.innerText=taskvalue+" ";
+            li.appendChild(done);
+            li.appendChild(deletebtn);
+            document.getElementById("tasks").appendChild(li);
+            taskinput.value="";
+        }
+    </script>
+</body>
+</html>
